@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  myapp:
+    image: ebs_oracle
+    network_mode: host
+    build:
+      context: .
+    ports:
+      - "8443:8443"
+      - "1522:1522"
+    environment:
+      - SINGLE_USER_CREDENTIALS_USERNAME=admin
+      - SINGLE_USER_CREDENTIALS_PASSWORD=123456789111
+    command: ["./start.sh"]
